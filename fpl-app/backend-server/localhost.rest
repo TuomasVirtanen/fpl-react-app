@@ -1,0 +1,4 @@
+GET http://localhost:5000/api/player-season-stats
+
+###
+GET http://localhost:3306/api/player-season-stats

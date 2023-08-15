@@ -1,22 +1,18 @@
-const playerSeasonStatsModel = require("../models/playerSeasonStatsModel");
+const playerStats = require("../models/playerSeasonStatsModel");
+const players = require("../models/playersModel");
 
-const getAllPlayerSeasonStats = (req, res) => {
-  playerSeasonStatsModel.getPlayerSeasonStats((err, data) => {
-    if (err) {
-      return res.status(500).json({ error: "Internal Server Error" });
-    }
-    return res.json(data);
-  });
+const getAllPlayerSeasonStats = async (req, res) => {
+  const response = await playerStats.getAllPlayerSeasonStats();
+  if (response) {
+    res.send(response);
+  }
 };
 
-const addPlayerSeasonStats = (req, res) => {
-  const data = req.body;
-  playerSeasonStatsModel.addPlayerSeasonStats(data, (err, result) => {
-    if (err) {
-      return res.status(500).json({ error: "Internal Server Error" });
-    }
-    return res.json({ message: "Data added successfully", data: result });
-  });
+const getAllPlayers = async (req, res) => {
+  const response = await players.getAllPlayers();
+  if (response) {
+    res.send(response);
+  }
 };
 
-module.exports = { getAllPlayerSeasonStats, addPlayerSeasonStats };
+module.exports = { getAllPlayerSeasonStats, getAllPlayers };

@@ -1,11 +1,13 @@
-const sqlite3 = require("sqlite3").verbose();
+const mysql = require("mysql");
+require("dotenv").config();
 
-const db = new sqlite3.Database("fplData.sqlite", (err) => {
-  if (err) {
-    console.error("Error connecting to the database:", err.message);
-  } else {
-    console.log("Connected to the database.");
-  }
+const connection = mysql.createPool({
+  connectionLimit: 10,
+  host: process.env.MYSQL_HOST,
+  user: process.env.MYSQL_USERNAME,
+  password: process.env.MYSQL_PASSWORD,
+  database: process.env.MYSQL_DATABASE,
+  port: 3306,
 });
 
-module.exports = db;
+module.exports = connection;
