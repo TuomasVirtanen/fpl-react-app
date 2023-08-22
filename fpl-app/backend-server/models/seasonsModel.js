@@ -1,9 +1,9 @@
 const connection = require("../database/db");
 
-const players = {
-  getAllPlayers: () =>
+const seasons = {
+  getAllSeasons: () =>
     new Promise((resolve, reject) => {
-      connection.query("SELECT * FROM Player;", (err, result) => {
+      connection.query("SELECT * FROM Season;", (err, result) => {
         if (err) {
           reject(err);
         } else {
@@ -13,4 +13,4 @@ const players = {
     }),
 };
 
-module.exports = players;
+module.exports = seasons;

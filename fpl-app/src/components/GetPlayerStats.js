@@ -22,7 +22,7 @@ const PlayerList = () => {
       <ul>
         {players.map((player) => (
           <li key={player.player_season_stats_id}>
-            {player.name} - {player.goals}
+            {player.shirt_name} - {player.goals}
           </li>
         ))}
       </ul>

@@ -7,6 +7,7 @@ const App = () => {
   return (
     <div>
       <PlayerList></PlayerList>
+      <PlayerStatsForm></PlayerStatsForm>
     </div>
   );
 };
